@@ -20,6 +20,7 @@ fun main() {
     )
     wallService.addPost(
         Post(
+            id = 0,
             from_Id = 2,
             owner_Id = 2,
             text = "Hello 2",
@@ -30,9 +31,8 @@ fun main() {
             markedAsAds = false
         )
     )
-  //  wallService.addPost(Post(wallService.getNextId(), 3, 3, "Hello 2", likes, views, reposts, false, false))
-    wallService.printPosts()
 
+    wallService.printPosts()
     println()
     update(wallService, 2, "HI", updatedLikes, updatedViews, updatedReposts)
     println()

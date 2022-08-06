@@ -6,8 +6,6 @@ class Reposts(
         set(value) {
             if (count < 0) {
                 field = 0
-            } else {
-                field = 0
             }
         }
 
