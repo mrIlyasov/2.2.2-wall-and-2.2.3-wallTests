@@ -6,9 +6,31 @@ fun main() {
     var updatedViews = Views(1)
     var updatedReposts = Reposts(false, 1)
     var wallService = WallService
-    wallService.addPost(Post(wallService.getNextId(), 1, 1, "Hello", likes, views, reposts, false, false))
-    wallService.addPost(Post(wallService.getNextId(), 2, 2, "Hello 2", likes, views, reposts, false, false))
-    wallService.addPost(Post(wallService.getNextId(), 3, 3, "Hello 2", likes, views, reposts, false, false))
+    wallService.addPost(
+        Post(
+            from_Id = 1,
+            owner_Id = 1,
+            text = "Hello",
+            likes = likes,
+            views = views,
+            reposts = reposts,
+            friendsOnly = false,
+            markedAsAds = false
+        )
+    )
+    wallService.addPost(
+        Post(
+            from_Id = 2,
+            owner_Id = 2,
+            text = "Hello 2",
+            likes = likes,
+            views = views,
+            reposts = reposts,
+            friendsOnly = false,
+            markedAsAds = false
+        )
+    )
+  //  wallService.addPost(Post(wallService.getNextId(), 3, 3, "Hello 2", likes, views, reposts, false, false))
     wallService.printPosts()
 
     println()
@@ -30,16 +52,12 @@ fun update(
     var result: Boolean = false
     for (index in wallService.posts.indices) {
         if (id == wallService.posts[index].id) {
-            val updatedPost: Post
-            updatedPost = wallService.posts[index].copy(
-                text = updatedText,
-                likes = updatedLikes,
-                views = updatedViews,
-                reposts = updatedReposts
-            )
-            wallService.posts[index] = updatedPost
+            wallService.posts[index].text = updatedText
+            wallService.posts[index].reposts = updatedReposts
+            wallService.posts[index].likes = updatedLikes
+            wallService.posts[index].views = updatedViews
             println("Post updated!")
-            println(updatedPost)
+            println(wallService.posts[index])
             result = true
             break
         } else {

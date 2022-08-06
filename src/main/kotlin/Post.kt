@@ -1,17 +1,25 @@
-data class Post(
-    val id: Int,
+private var nextId: Int = 1
+
+class Post(
+    val id: Int = nextId,
     val from_Id: Int,
     val owner_Id: Int,
-    val text: String,
-    val likes: Likes,
-    val views: Views,
-    val reposts: Reposts,
-    val friendsOnly: Boolean,
-    val markedAsAds: Boolean
+    var text: String,
+    var likes: Likes,
+    var views: Views,
+    var reposts: Reposts,
+    var friendsOnly: Boolean,
+    var markedAsAds: Boolean
 ) {
-    override fun toString(): String {
-        return ("$id, $from_Id, $owner_Id, $text, $likes, $views, $reposts, $friendsOnly, $markedAsAds")
+
+    init {
+        nextId += 1
     }
+
+
+override fun toString(): String {
+    return ("$id, $from_Id, $owner_Id, $text, $likes, $views, $reposts, $friendsOnly, $markedAsAds")
+}
 
 
 }
