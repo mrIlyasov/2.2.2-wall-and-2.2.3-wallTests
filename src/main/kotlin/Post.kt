@@ -1,7 +1,5 @@
-private var nextId: Int = 1
-
-class Post(
-    id: Int = nextId,
+data class Post(
+    val id: Int,
     val from_Id: Int,
     val owner_Id: Int,
     var text: String,
@@ -10,24 +8,13 @@ class Post(
     var reposts: Reposts,
     var friendsOnly: Boolean,
     var markedAsAds: Boolean,
-
     ) {
-    var id = id
-        get() {
-            return field
-        }
-        set(value) {
-            if (id < 1) {
-                field = nextId
-            }
-        }
 
 
     init {
-        if (id < 1)
-            this.id = nextId
-        nextId += 1
+
     }
+
 
 
     override fun toString(): String {
