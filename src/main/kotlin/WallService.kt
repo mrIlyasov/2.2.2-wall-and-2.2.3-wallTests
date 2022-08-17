@@ -26,10 +26,8 @@ object WallService {
         var result: Boolean = false
         for (index in posts.indices) {
             if (id == posts[index].id) {
-                posts[index].text = newText
-                posts[index].reposts = newReposts
-                posts[index].likes = newLikes
-                posts[index].views = newViews
+                val updadedPost = posts[index].copy(text = newText, reposts = newReposts, likes = newLikes, views = newViews)
+                posts[index] = updadedPost
                 println("Post updated!")
                 println(posts[index])
                 result = true

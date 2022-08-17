@@ -39,7 +39,7 @@ class WallServiceTest {
         var result = wallService.updatePost(id, newText,newLikes, newViews, newReposts)
         Assert.assertEquals(true, result)
     }
-
+    @Test
     fun updatePostShoulReturnFalse() {
         var wallService = WallService
         val likes = Likes(false, true, false, 1)
